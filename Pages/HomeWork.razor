@@ -1,3 +1,15 @@
-﻿@page "/homework"
+﻿@page "/homework/"
+
 <PageTitle>Home Work</PageTitle>
-<h1>HomeWork</h1>
+<h1> Home Work</h1>
+@* @if (Header.Length == 0)
+{
+    <h1>Praca domowa</h1>
+}
+else
+{
+    <h1>@Header</h1>
+} *@
+
+
+<button class="btn btn-dark m-4" @onclick="ToMainPage">Strona główna</button>
