@@ -9,7 +9,7 @@ namespace BlazorWasm.Pages
         NavigationManager NavigationManager { get; set; }   
         public void ToHomeWork()
         {
-            NavigationManager.NavigateTo("/homework/");
+            NavigationManager.NavigateTo("/homework-par/paremtrTestowy");
         }
     }
 }
