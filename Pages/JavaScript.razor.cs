@@ -7,8 +7,18 @@ namespace BlazorWasm.Pages
     {
         private bool _dialogResult = false;
         private string _currentDate = "";
+        private IJSObjectReference _jsModule;
         [Inject]
         public IJSRuntime JSRuntime { get; set; }
+
+        protected override async Task OnInitializedAsync()
+        {
+            _jsModule = await
+                JSRuntime.InvokeAsync<IJSObjectReference>
+                ("import", "./scripts/jsTestModule.js");
+        }
+
+
         public async Task DisplayAlert()
         {
             await JSRuntime.InvokeVoidAsync("alert", "Przykładowa wiadomość z przycisku JavaScript");
@@ -42,9 +52,13 @@ namespace BlazorWasm.Pages
 
         private async Task ShowDate()
         {
-            _currentDate = await JSRuntime.InvokeAsync<string>("GetCurrentDateCShape");
+            _currentDate = await JSRuntime.InvokeAsync<string>("GetCurrentDateCShape"); 
         }
 
+        private async Task ShowResultJsModule()
+        {
+            await _jsModule.InvokeVoidAsync("addNumberJSModule",1,12);
+        }
 
-}
+    }
 }
