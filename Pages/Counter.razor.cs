@@ -24,20 +24,23 @@ namespace BlazorWasm.Pages
 
         private void IncrementCount()
         {
+            /*    throw new Exception("Error 123");
+                StudentRepo.Add();
+                currentCount++;*/
             try
             {
-                throw new Exception("Error 123");
+               // throw new Exception("Error 123");
                 StudentRepo.Add();
                 currentCount++;
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);   
+                Console.WriteLine(ex.Message);
             }
-            
 
-            
-            
+
+
+
         }
 
         private void ToggleActive()
