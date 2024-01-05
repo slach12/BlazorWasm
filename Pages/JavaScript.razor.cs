@@ -67,7 +67,7 @@ namespace BlazorWasm.Pages
 
         private async Task ShowToastrNotification()
         {
-            await ToastrService.ShowInfoMessage("Toast wywołanie w blazor");
+            await ToastrService.ShowInfoMessage("Toastr wywołanie w Blazor!");
         }
 
         private async Task ChangeBackGroundColour()

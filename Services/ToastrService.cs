@@ -14,7 +14,8 @@ namespace BlazorWasm.Services
         public async Task ShowInfoMessage(string message)
         {
             await _jSRuntime.InvokeVoidAsync
-                ("toastrFunctions.showTostrInfo", "message");
+                ("toastrFunctions.showTostrInfo", message);
+               //   toastrFunctions.showTostrInfo
         }
     }
 }
