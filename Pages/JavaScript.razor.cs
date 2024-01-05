@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using BlazorWasm.Services;
+using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
+using System.Text.Json.Serialization;
 
 namespace BlazorWasm.Pages
 {
@@ -10,6 +12,9 @@ namespace BlazorWasm.Pages
         private IJSObjectReference _jsModule;
         [Inject]
         public IJSRuntime JSRuntime { get; set; }
+
+        [Inject]
+        public ToastrService ToastrService { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
@@ -59,6 +64,18 @@ namespace BlazorWasm.Pages
         {
             await _jsModule.InvokeVoidAsync("addNumberJSModule",1,12);
         }
+
+        private async Task ShowToastrNotification()
+        {
+            await ToastrService.ShowInfoMessage("Toast wywołanie w blazor");
+        }
+
+        private async Task ChangeBackGroundColour()
+        {
+            await JSRuntime.InvokeVoidAsync("changeBackgroundColor");
+        }
+
+
 
     }
 }

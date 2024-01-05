@@ -15,3 +15,14 @@ function addNumberCSharp(number1, number2) {
 function GetCurrentDateCShape() {
     return DotNet.invokeMethodAsync("BlazorWasm", "GetCurrentDate");
 }
+
+function changeBackgroundColor() {
+    if (document.body.style.backgroundColor != 'red')
+    {
+        document.body.style.backgroundColor = 'red';
+    } else {
+        document.body.style.backgroundColor = 'white';
+    }
+        
+
+}
