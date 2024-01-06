@@ -15,7 +15,20 @@ namespace BlazorWasm.Components
         [Parameter]
         public string BtnText { get; set; }
         [Parameter]
+        public string Style { get; set; }
+        [Parameter]
+        public string BtnClass{ get; set; } = "btn btn-danger";
+        [Parameter]
+        public bool BtnDisabled { get; set; }
+        [Parameter]
+        public string BtnTitle { get; set; }
+
+
+
+        [Parameter]
         public EventCallback<MouseEventArgs> OnClickMore { get; set; }
+        [Parameter(CaptureUnmatchedValues = true)]
+        public Dictionary<string, object> BtnAttributes { get; set; }
 
 
     }

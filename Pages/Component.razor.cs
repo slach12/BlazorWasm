@@ -8,6 +8,24 @@ namespace BlazorWasm.Pages
     {
         private string _info = "Komunikat 123";
         private string _title = "Tytuł!";
+
+        private Dictionary<string, object> _cardAttribiutes = new Dictionary<string, object>()
+        {
+            {"BtnClass","btn btn-success"},
+            {"BtnTitle","Więcej" },
+            {"BtnDisabled",false },
+            {"Style", ""},
+        };
+
+        private Dictionary<string, object> _cardBtnAttribiutes = new Dictionary<string, object>()
+        {
+            {"class","btn btn-success"},
+            {"title","Więcej" },
+            {"disabled",false },
+            {"type", "button"},
+            {"abc", "111 "},
+        };
+
         [Inject]
         public NavigationManager NavigationManager { get; set; }
 
