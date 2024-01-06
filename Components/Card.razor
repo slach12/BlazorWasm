@@ -1,8 +1,11 @@
-﻿<div class="card" style="width: 18rem;">
-    <img src="files/kowalski.png" class="card-img-top" alt="Jan Kowalski" />
-    <div class="card-body">
-        <h5 class="card-title">Jan Kowalski</h5>
-        <p class="card-text">Programista C#/.NET z 25 ltenim doświadczeniem.</p>
-        <button class="btn btn-primary">Więcej</button>
+﻿<div class="flex-column">
+    <div class="card my-1" style="width: 18rem;">
+        <img src="@Image" class="card-img-top" alt="@Title" />
+        <div class="card-body">
+            <h5 class="card-title">@Title</h5>
+            <p class="card-text">@Content</p>
+            <button @onclick="OnClickMore" class="btn btn-primary">@BtnText</button>
+        </div>
     </div>
+    <AdditionalInfo />
 </div>
