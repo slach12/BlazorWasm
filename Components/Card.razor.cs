@@ -9,9 +9,9 @@ namespace BlazorWasm.Components
         [Parameter]
         public string Image { get; set; }
         [Parameter]
-        public string Title { get; set; }
+        public RenderFragment Title { get; set; }
         [Parameter]
-        public string Content { get; set; }
+        public RenderFragment Content { get; set; }
         [Parameter]
         public string BtnText { get; set; }
         [Parameter]

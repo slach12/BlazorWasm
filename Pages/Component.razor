@@ -6,11 +6,23 @@
         <Card 
             Image="/files/kowalski.png"
             BtnText="Więcej"
-            Title="Jan Kowalski"
-            Content="Programista C#/.NET z 20 letnim doświadczeniem.
-            Specjalizacja : Blazor i ASP .NET Core "
+      
             OnClickMore="ClickMore"
-        > </Card> 
+        > 
+            <Title>
+                <B>Jan Kowalski</B>
+            </Title>
+            <Content>
+                <p>
+                    <u>Programista C#/.NET </u> z 20 letnim doświadczeniem.<br />
+                    <u> Specjalizacje:</u>
+                    <ul>
+                        <li>Blazor</li>
+                        <li>ASP .NET Core</li>
+                    </ul>
+                </p>
+            </Content>
+        </Card> 
     </CascadingValue>
 </CascadingValue>
 
@@ -20,8 +32,14 @@
         <Card
             Image="@item.Image"
             BtnText="@item.BtnText"
-            Title="@item.Title"
-            Content="@item.Content"
-        ></Card>
+         >
+        <Title>
+            @item.Title
+        </Title>
+        <Content>
+            @item.Content
+        </Content>
+        
+    </Card>
     }
 </div>
