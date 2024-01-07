@@ -30,6 +30,27 @@ namespace BlazorWasm.Components
         [Parameter(CaptureUnmatchedValues = true)]
         public Dictionary<string, object> BtnAttributes { get; set; }
 
+        public override async Task SetParametersAsync(ParameterView parameters)
+        {
+            Console.WriteLine("SetParametersAsync");
+            await base.SetParametersAsync(parameters);
+        }
+
+        protected override async Task OnInitializedAsync()
+        {
+            Console.WriteLine("OnInitializedAsync");
+            await base.OnInitializedAsync();
+        }
+
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            if (firstRender)
+            {
+                Console.WriteLine("OnAfterRenderAsync - pierwsze uruchomienie");
+            }
+            Console.WriteLine("OnAfterRenderAsync");
+            await base.OnAfterRenderAsync(firstRender);
+        }
 
     }
 }

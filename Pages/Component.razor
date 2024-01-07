@@ -1,11 +1,16 @@
 ﻿@page "/component"
 <h3>Component</h3>
 
+<br />
+<button class="btn btn-danger" @onclick="ChanegeBtnText">
+    Zmień tekst przycisku
+</button>
+
 <CascadingValue Value="@_title" Name="Title">
      <CascadingValue Value="@_info" Name="Info">
         <Card 
             Image="/files/kowalski.png"
-            BtnText="Więcej"
+            BtnText="@_btnText"
             OnClickMore="ClickMore"
             BtnAttributes="_cardBtnAttribiutes">
             <Title>

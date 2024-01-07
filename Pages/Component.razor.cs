@@ -8,6 +8,7 @@ namespace BlazorWasm.Pages
     {
         private string _info = "Komunikat 123";
         private string _title = "Tytuł!";
+        private string _btnText = "Więcej";
 
         private Dictionary<string, object> _cardAttribiutes = new Dictionary<string, object>()
         {
@@ -29,16 +30,26 @@ namespace BlazorWasm.Pages
         [Inject]
         public NavigationManager NavigationManager { get; set; }
 
-        private List<CardModel> _authors = new List<CardModel>
+        private List<CardModel> _authors = new();
+
+        protected async override Task OnInitializedAsync()
+        {
+            _authors = new List<CardModel>
                 {
                     new CardModel { Title = "Jan Kowalski", Content = "Programista C#/.NET z 20 letnim doświadczeniem.Specjalizacje: Blazor i ASP.NET Core", Image = "/files/kowalski.png", BtnText = "Więcej"},
                     new CardModel { Title = "Anna Nowak", Content = "Programista C#/.NET z 10 letnim doświadczeniem.Specjalizacje: WPF", Image = "/files/nowak.png", BtnText = "Więcej"},
                     new CardModel { Title = "Błażej Kwiatkowski", Content = "Programista C#/.NET z 3 letnim doświadczeniem.Specjalizacje: Frontend", Image = "/files/kwiatkowski.png", BtnText = "Więcej" }
                 };
-
+            await base.OnInitializedAsync();
+        }
         private void ClickMore(MouseEventArgs e)
         {
             NavigationManager.NavigateTo("/");
+        }
+
+        private void ChanegeBtnText()
+        {
+            _btnText = "Więcej .....";
         }
     }
 }
