@@ -1,4 +1,5 @@
-﻿using BlazorWasm.Models;
+﻿using BlazorWasm.Components;
+using BlazorWasm.Models;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 
@@ -9,6 +10,7 @@ namespace BlazorWasm.Pages
         private string _info = "Komunikat 123";
         private string _title = "Tytuł!";
         private string _btnText = "Więcej";
+        private Card _card;
 
         private Dictionary<string, object> _cardAttribiutes = new Dictionary<string, object>()
         {
@@ -34,13 +36,23 @@ namespace BlazorWasm.Pages
 
         protected async override Task OnInitializedAsync()
         {
-            _authors = new List<CardModel>
+        
+            await base.OnInitializedAsync();
+        }
+
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            if (firstRender)
+            {
+                _authors = new List<CardModel>
                 {
                     new CardModel { Title = "Jan Kowalski", Content = "Programista C#/.NET z 20 letnim doświadczeniem.Specjalizacje: Blazor i ASP.NET Core", Image = "/files/kowalski.png", BtnText = "Więcej"},
                     new CardModel { Title = "Anna Nowak", Content = "Programista C#/.NET z 10 letnim doświadczeniem.Specjalizacje: WPF", Image = "/files/nowak.png", BtnText = "Więcej"},
                     new CardModel { Title = "Błażej Kwiatkowski", Content = "Programista C#/.NET z 3 letnim doświadczeniem.Specjalizacje: Frontend", Image = "/files/kwiatkowski.png", BtnText = "Więcej" }
                 };
-            await base.OnInitializedAsync();
+                StateHasChanged();
+            }
+            await base.OnAfterRenderAsync(firstRender);
         }
         private void ClickMore(MouseEventArgs e)
         {
@@ -50,6 +62,11 @@ namespace BlazorWasm.Pages
         private void ChanegeBtnText()
         {
             _btnText = "Więcej .....";
+        }
+
+        private void AddCardBorder()
+        {
+            _card.AddCardBorder();
         }
     }
 }

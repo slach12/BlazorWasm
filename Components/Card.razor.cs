@@ -6,6 +6,7 @@ namespace BlazorWasm.Components
     public partial class Card
     {
         private string _info = "Komunikat z CARD";
+        private string _additionalCardClasses = "";
         [Parameter]
         public string Image { get; set; }
         [Parameter]
@@ -50,6 +51,11 @@ namespace BlazorWasm.Components
             }
             Console.WriteLine("OnAfterRenderAsync");
             await base.OnAfterRenderAsync(firstRender);
+        }
+
+        public void AddCardBorder()
+        {
+            _additionalCardClasses = "border-3 border-success";
         }
 
     }
